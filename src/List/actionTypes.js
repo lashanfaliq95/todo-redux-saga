@@ -1,0 +1,3 @@
+export const ADD_TODO = "ADD_TODO";
+export const ADD_RANDOM_EMAIL = "ADD_RANDOM_EMAIL";
+export const TEXT_FETCH_SUCCEEDED = "TEXT_FETCH_SUCCEEDED";
