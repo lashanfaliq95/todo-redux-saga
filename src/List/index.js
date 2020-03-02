@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Todo from "./components/Todo";
 import { addRandomText, addTodo } from "./actions";
 import { connect } from "react-redux";
+import { getVisibleTodos } from "./reducer";
 
 const TodoContainer = props => {
   const { todos, addRandomText, addTodo } = props;
@@ -33,7 +34,7 @@ const TodoContainer = props => {
 };
 
 const mapStateToProps = state => {
-  return { todos: state.todos };
+  return { todos: getVisibleTodos(state.toJS()) };
 };
 
 export default connect(mapStateToProps, { addRandomText, addTodo })(
