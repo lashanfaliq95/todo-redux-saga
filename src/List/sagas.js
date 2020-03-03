@@ -7,6 +7,7 @@ import fetchText from "./services";
 function* fetchEmail(action) {
   try {
     const text = yield call(fetchText, action.payload.userId);
+    yield delay(1000);
     yield put(fetchTextSucceeded(text));
   } catch (e) {
     yield put(fetchTextFailed(e));
@@ -20,5 +21,7 @@ function* fetchEmail(action) {
 function* mySaga() {
   yield takeEvery(ADD_RANDOM_EMAIL, fetchEmail);
 }
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 export default mySaga;
